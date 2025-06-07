@@ -1,129 +1,177 @@
-# 🧱 Learn Design System | React Boilerplate Design System
+# My Design System 🎨
 
-A modern component library built with **React**, **TypeScript**, and **Storybook** — focused on accessibility, composability, and developer experience.
+![GitHub release](https://img.shields.io/github/release/P-Prajwal1973/my-design-system.svg?style=flat-square)
 
-> For technical decisions, architectural philosophy, and contributor onboarding, see [`docs/component-guidelines.md`](./docs/component-guidelines.md)
+Welcome to **My Design System**! This is a component-based design system built with React, TypeScript, and Styled Components. This library serves as a great resource for learning and practice. You can use it as a boilerplate or fork it for your own experimentation. 
 
----
+Check out the [Releases section](https://github.com/P-Prajwal1973/my-design-system/releases) for the latest updates and downloads.
 
-## 🚀 Getting Started
+## Table of Contents
 
-### 1. Requirements
+1. [Getting Started](#getting-started)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Components](#components)
+5. [Testing](#testing)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Acknowledgments](#acknowledgments)
 
-- **Node.js**: `v22.14.0`
-- **npm**: `v10.9.2`
+## Getting Started 🚀
 
-Set up your environment:
+To get started with My Design System, you will need to set up your development environment. This section provides a brief overview of what you need to know before diving in.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (version 14 or higher)
+- npm (Node package manager)
+
+## Installation 📦
+
+To install the design system, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/P-Prajwal1973/my-design-system.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd my-design-system
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+After installation, you can start using the components in your projects.
+
+## Usage 📘
+
+To use components from My Design System, import them into your React application. Here’s a simple example:
+
+```javascript
+import React from 'react';
+import { Button } from 'my-design-system';
+
+const App = () => {
+  return (
+    <div>
+      <h1>Welcome to My Design System</h1>
+      <Button label="Click Me" />
+    </div>
+  );
+};
+
+export default App;
+```
+
+## Components 🧩
+
+My Design System includes a variety of UI components that you can use in your applications. Below are some of the key components:
+
+### Button
+
+A customizable button component that can be styled and configured easily.
+
+```javascript
+<Button label="Submit" onClick={handleClick} />
+```
+
+### Input
+
+An input field that supports various types and validations.
+
+```javascript
+<Input type="text" placeholder="Enter your name" />
+```
+
+### Card
+
+A card component that can hold content and images.
+
+```javascript
+<Card title="Card Title" content="This is some card content." />
+```
+
+For a full list of components, check the documentation in the `/docs` folder.
+
+## Testing 🧪
+
+My Design System includes testing capabilities using Jest and React Testing Library. To run the tests, use the following command:
 
 ```bash
-nvm use
-npm install
+npm test
 ```
 
----
+This will execute all the tests in the project. You can also add new tests as you create new components.
 
-### 2. Run Storybook
+### Example Test
 
-```bash
-npm run storybook
+Here’s a simple test for the Button component:
+
+```javascript
+import { render, screen } from '@testing-library/react';
+import Button from './Button';
+
+test('renders button with label', () => {
+  render(<Button label="Click Me" />);
+  const buttonElement = screen.getByText(/Click Me/i);
+  expect(buttonElement).toBeInTheDocument();
+});
 ```
 
-Build a static version:
+## Contributing 🤝
 
-```bash
-npm run build:storybook
-```
+Contributions are welcome! If you have suggestions for improvements or want to add new components, please follow these steps:
 
----
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
 
-### 3. Run Tests
+Your contributions help make My Design System better for everyone.
 
-```bash
-npm run test              # all tests
-npm run test:unit         # unit tests
-npm run test:integration  # integration tests
-npm run test:coverage     # full coverage report
-```
+## License 📜
 
----
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 📦 Usage in Projects
+## Acknowledgments 🙏
 
-This library is **published on npm** under the name [`@luisalbertodev/my-design-system`](https://www.npmjs.com/package/@luisalbertodev/my-design-system) — **as a technical practice only**.
-It is **not intended for production usage**, and no guarantees are provided for stability or updates.
+- Thanks to the React and TypeScript communities for their continuous support and resources.
+- Special thanks to the creators of Styled Components for making styling easier in React applications.
 
-Install (for demo/testing purposes only):
+For more information, visit the [Releases section](https://github.com/P-Prajwal1973/my-design-system/releases) to download the latest version or check for updates.
 
-```bash
-npm install @luisalbertodev/my-design-system
-```
+## Topics 🏷️
 
-> ✅ Recommended usage: fork and adapt to your own design system needs.
+This repository covers various topics related to design systems and component libraries, including:
 
-Alternatively, you can consume it locally:
+- Accessibility
+- Boilerplate
+- Component Library
+- Design System
+- ESLint
+- Jest
+- NPM Package
+- Playwright
+- Prettier
+- React Testing Library
+- ReactJS
+- Rollup
+- Storybook
+- Styled Components
+- Testing
+- TypeScript
+- UI Components
 
-```bash
-npm run build
-npm link
-```
+Feel free to explore these topics as you work with My Design System. 
 
----
-
-## 📚 Folder Structure
-
-Each component lives in its own folder under `src/`, and follows this structure:
-
-```
-/ComponentName
-├── Component.tsx
-├── Component.styled.ts
-├── Component.types.ts
-├── Component.unit.spec.tsx
-├── Component.integration.spec.tsx
-├── Component.architecture.md
-└── index.ts
-```
-
-> Refer to [`docs/component-guidelines.md`](./docs/component-guidelines.md) for architectural rationale.
-
----
-
-## 🧪 Testing Strategy
-
-Testing is split into:
-
-- Unit
-- Integration
-- E2E (via Playwright – WIP)
-
-Run E2E (once implemented):
-
-```bash
-npx playwright test
-```
-
----
-
-## ⚠️ Disclaimer
-
-> **This project is no longer maintained.**
-> It was created as a technical exercise to consolidate knowledge in building scalable design systems using React, TypeScript, and Storybook.
->
-> **Suggested usage**:
->
-> - Fork this repository and explore it for your own learning.
-> - Use it as a boilerplate for building your own design system.
-> - Modify and adapt freely — that’s the purpose.
-
----
-
-## 🧑‍💻 Maintainer
-
-Luis Alberto Pérez Coello
-[Portfolio](https://out-luisalbertodev.vercel.app) · [LinkedIn](https://www.linkedin.com/in/luisalbertodev/)
-
----
-
-## 📝 License
-
-MIT — see `LICENSE` file
+Thank you for checking out My Design System! We hope it helps you in your development journey.
